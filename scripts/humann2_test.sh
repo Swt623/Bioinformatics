@@ -27,6 +27,6 @@ echo "HUMAnN2 ${sample} started."
 
 cd /projects/b1042/HartmannLab/weitao/monkeygut/
 # run HUMAnN2 in Singularity
-singularity exec -B /projects/b1042/ -B /projects/b1057/ /projects/b1057/biobakery_diamondv0822.sif humann2 -i metaphlan2_out/${sample}.bowtie2.bz2 -o humann2_out --threads 12
+singularity exec -B /projects/b1042/ -B /projects/b1057/ /projects/b1057/biobakery_diamondv0822.sif humann2 -i metaphlan2_out/${sample}.bowtie2.bz2 -o humann2_out --input-format sam --threads 12
 
 echo "Completed HUMAnN2 ${sample}."
