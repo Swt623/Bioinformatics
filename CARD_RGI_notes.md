@@ -1,4 +1,4 @@
-# The Resistance Gene Identifier (RGI) [https://github.com/arpcard/rgi]
+# [The Resistance Gene Identifier (RGI)](https://github.com/arpcard/rgi)
 
 Reference data: CARD
 
@@ -38,3 +38,48 @@ Combined with phenotypic screening, the Loose algorithm allows researchers to ho
 
 4, JSON files created at the command line can be uploaded at the CARD website for visualization. 
 
+
+# [RGI usage documentation](https://github.com/arpcard/rgi#id38)
+
+## CARD reference data
+
+### Get CARD database
+
+    wget https://card.mcmaster.ca/latest/data
+    tar -xvf data ./card.json
+
+### Load CARD database
+
+Local or working directory: 
+
+    rgi load --card_json /path/to/card.json --local
+    
+System wide: 
+
+    rgi load --card_json /path/to/card.json
+    
+## CARD's Resistomes & Variants data:
+
+Additional CARD data pre-processing for metagenomics
+
+Obtain WildCARD data
+
+Load WildCARD data
+
+
+## [Beta-testing algorithm for metagenomic short reads, genomic short reads.](https://github.com/arpcard/rgi#using-rgi-bwt-metagenomic-short-reads-genomic-short-reads) 
+
+    rgi bwt -1 $read1 [-2 $read2] [-a {bowtie2, bwa}] [-n treads] -o $output_file_prefix [--clean] [--include_wildcard]
+
+example: 
+
+    rgi bwt -1 kneaddata_out/mate1.fasta -2 kneaddata_out/mate2.fasta -a bowtie2 -n 24 -o CARD_out/sample --clean --include_wildcard
+    
+
+### [RGI bwt output](https://github.com/arpcard/rgi#rgi-bwt-tab-delimited-output-details)
+
+* read mapping results at allel and gene levels
+* statistics files
+
+
+    
