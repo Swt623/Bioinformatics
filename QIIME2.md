@@ -13,6 +13,8 @@ Or, install through bioconda:
 
     conda env create -n qiime2-2021.4 --file qiime2-2021.4-py38-linux-conda.yml
     source activate qiime2-2021.4
+    
+[bioconda qiime page](https://bioconda.github.io/recipes/qiime/README.html)
 
 ## 1. [Prepare data](https://docs.qiime2.org/2021.4/tutorials/importing/)
 
