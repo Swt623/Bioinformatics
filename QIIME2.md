@@ -65,7 +65,31 @@ Viewing a summary of joined data with read quality:
 
 ## 3. Clustering
 
+Three options: *de novo*, closed-reference, and open-reference clustering.
 
+* *Denovo*:
+  
+      qiime vsearch cluster-features-de-novo \
+      --i-table table.qza \
+      --i-sequences rep-seqs.qza \
+      --p-perc-identity 0.99 \
+      --o-clustered-table table-dn-99.qza \
+      --o-clustered-sequences rep-seqs-dn-99.qza
+
+* Closed-reference: Required when you are comparing non-overlapping amplicons, such as the V2 and the V4 regions of the 16S rRNA. 
+
+      qiime vsearch cluster-features-closed-reference \
+      --i-table table.qza \
+      --i-sequences rep-seqs.qza \
+      --i-reference-sequences 85_otus.qza \
+      --p-perc-identity 0.85 \
+      --o-clustered-table table-cr-85.qza \
+      --o-clustered-sequences rep-seqs-cr-85.qza \
+      --o-unmatched-sequences unmatched-cr-85.qza
+
+* Get database
+
+[QIIME 2 data resources](https://docs.qiime2.org/2020.11/data-resources/)
 
 ### QIIME2 datafiles
 
