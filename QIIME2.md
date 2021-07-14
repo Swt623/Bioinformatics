@@ -4,7 +4,12 @@ Get image file for singularity:
 
 	module load singularity
 	singularity build qiime2-2019.10.sif docker://qiime2/core:2019.10
-  
+
+Pull from docker:
+
+	module load singularity
+	singularity pull docker://qiime2/core:latest
+
 Path/file: 
 
     /projects/p31421/Images/qiime2-2019.10.sif
