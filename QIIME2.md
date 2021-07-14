@@ -33,6 +33,8 @@ Viewing a summary of joined data with read quality:
 
 ## 2. Denoising
 
+Both Deblur and DADA2 contain internal *chimera checking* methods and *abundance filtering*, so additional filtering should not be necessary following these methods.
+
 * Using data2:
 
       qiime dada2 denoise-paired \
@@ -55,7 +57,7 @@ Viewing a summary of joined data with read quality:
     --o-filter-stats demux-joined-filter-stats.qza
     --p-min-quality 30
     
-**Denoise:
+**Denoise using deblur:
 
     qiime deblur denoise-16S \
     --i-demultiplexed-seqs demux-joined-filtered.qza \
@@ -65,7 +67,13 @@ Viewing a summary of joined data with read quality:
     --o-table table.qza \
     --o-stats deblur-stats.qza
 
-## 3. Clustering
+### Clustering
+
+Quote: "
+
+We cluster sequences to collapse similar sequences (e.g., those that are ≥ 97% similar to each other) into single replicate sequences. This process, also known as OTU picking, was once a common procedure, used to simultaneously dereplicate but also perform a sort of quick-and-dirty denoising procedure (to capture stochastic sequencing and PCR errors, which should be rare and similar to more abundant centroid sequences). Use denoising methods instead if you can. Times have changed. Welcome to the future. 😎
+    
+"
 
 Three options: *de novo*, closed-reference, and open-reference clustering.
 
@@ -89,14 +97,90 @@ Three options: *de novo*, closed-reference, and open-reference clustering.
       --o-clustered-sequences rep-seqs-cr-85.qza \
       --o-unmatched-sequences unmatched-cr-85.qza
 
-* Get database
+## 3. Taxonomy classification and taxonomic analyses
+
+### 3.1 Classifying using pre-trained classifier
+
+#### Get database
 
 [QIIME 2 data resources](https://docs.qiime2.org/2020.11/data-resources/)
 
-### QIIME2 datafiles
+* Naive Bayes classifier trained on Silva 138 99% OTUs full-length sequences: silva-138-99-nb-retrain-classifier.qza
+* Naive Bayes classifier trained on Silva 138 99% OTUs from 515F/806R region of sequences: silva-138-99-515-806-nb-classifier.qza
+* Naive Bayes classifier trained on Greengenes 13_8 99% OTUs full-length sequences: gg-13-8-99-nb-classifier.qza
+* Naive Bayes classifier trained on Greengenes 13_8 99% OTUs from 515F/806R region of sequences: gg-13-8-99-515-806-nb-classifier.qza
+
+Generating taxonomy.qza:
+
+      qiime feature-classifier classify-sklearn \
+      --i-classifier silva-138-99-nb-retrain-classifier.qza \
+      --i-reads rep-seqs.qza \
+      --o-classification taxonomy.qza
+  
+Generating visualization artifact taxonomy.qzv from taxonomy.qza:
+
+	qiime metadata tabulate \
+	--m-input-file taxonomy.qza \
+	--o-visualization taxonomy.qzv
+
+### 3.2 Collapse taxonomy feature
+
+[qiime taxa collapse](https://docs.qiime2.org/2021.4/plugins/available/taxa/collapse/)
+
+	qiime taxa collapse \
+	--i-table table.qza \
+	--i-taxonomy taxonomy.qza \
+	--p-level 6 # at genus level \
+	--o-collapsed-table collapsed-table.qza
+	
+### 3.3 Differential abundance testing with ANCOM
+
+*Assumption: <25% features are changing between groups. Should not use ANCOM if expect large change. 
+
+* Create a FeatureTable[Composition] QIIME 2 artifact using a FeatureTable[Frequency]: 
+
+      qiime composition add-pseudocount \
+      --i-table table.qza \
+      --o-composition-table comp-table.qza
+
+*  Run ANCOM on the {subject} column to determine what features differ in abundance across the gut samples of the two subjects:
+
+       qiime composition ancom \
+       --i-table comp-table.qza \
+       --m-metadata-file sample-metadata.tsv \
+       --m-metadata-column subject \
+       --o-visualization ancom-subject.qzv
+    
+    Can use collapsed FeatureTable for a differential abundance test at a specific taxonomic level. 
+
+*How to interpret ancom vocano plot???
+
+## 4. Alpha and beta diversity
+
+### 4.1 Phylogenetic diversity analyses (Tree generation)
+
+    qiime phylogeny align-to-tree-mafft-fasttree \
+    --i-sequences rep-seqs.qza \
+    --o-alignment aligned-rep-seqs.qza \
+    --o-masked-alignment masked-aligned-rep-seqs.qza \
+    --o-tree unrooted-tree.qza \
+    --o-rooted-tree rooted-tree.qza
+
+### 4.2 Alpha diversity
+
+
+
+### 4.3 Beta diversity
+
+
+
+## QIIME2 datafiles
 
 * QIIME2 artifact: .qza
 * QIIME2 visualization: .qzv
 
 Viewing QIIME2 datafiles: https://view.qiime2.org/ 
 
+Reference database for wastewater: https://midasfieldguide.org/guide
+
+### [Qiime 2 plugins](https://docs.qiime2.org/2021.4/plugins/)
