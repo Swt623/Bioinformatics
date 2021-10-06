@@ -1,6 +1,6 @@
 ### Split large fasta files
 
-* pyfasta pakage
+* [pyfasta pakage](https://pypi.org/project/pyfasta/#command-line-interface)
 
 local installation:
 
