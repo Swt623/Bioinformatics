@@ -28,4 +28,4 @@ Run MobileElementFinder:
 
     singularity exec /projects/p31421/Images/mobile_element_finder_latest.sif mefinder --help
     
-    singularity exec -B PATH/AVAILABLE PATH/TO/IMAGE/image.sif
+    singularity exec -B PATH/AVAILABLE PATH/TO/IMAGE/image.sif command [options]
