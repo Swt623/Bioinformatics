@@ -33,12 +33,19 @@ See compelte option list [here](https://github.com/biobakery/humann/blob/2.9/rea
 ### [Standard workflow](https://github.com/biobakery/humann/blob/2.9/readme.md#standard-workflow)
 1. Run Humann2 on quality controlled fastq files. 
 
-`$ humann2 -i $input_file -o $output_dir`
+`$humann2 -i $input_file -o $output_dir`
+
+or, if taxonomic profile is obtained from MetaPhlan2, run
+
+`$humann2 -i $input_file -o $output_dir --taxonomic-profile $taxonomic_profile_file`
 
 This will produce three .tsv files:
-`$OUTPUT_DIR/$SAMPLE_genefamilies.tsv
+
+```
+$OUTPUT_DIR/$SAMPLE_genefamilies.tsv
 $OUTPUT_DIR/$SAMPLE_pathabundance.tsv
-$OUTPUT_DIR/$SAMPLE_pathcoverage.tsv`
+$OUTPUT_DIR/$SAMPLE_pathcoverage.tsv
+```
 
 2. Normalize the abundance output files.
 
