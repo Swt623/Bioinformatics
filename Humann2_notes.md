@@ -3,8 +3,8 @@
 [HUMAnN 2.0 Tutorial](https://github.com/biobakery/biobakery/wiki/humann2)
 
 ## Imput: 
-* a quality-controlled metagenome or metatranscriptome: fastq(.gz), fasta(.gz).
-* alignment results: sam, bam, blast-like tsv
+* a quality-controlled metagenome or metatranscriptome: fastq(.gz), fasta(.gz); or
+* alignment results: sam, bam, blast-like tsv; or
 * gene table: tsv, biom
 
 Blastm8 format is created by the following software: rapsearch2, usearch, and blast.
@@ -21,7 +21,7 @@ Download the ChocoPhlAn database providing $INSTALL_LOCATION as the location to 
 NOTE: The humann2 config file will be updated to point to this location for the default chocophlan database. If you move this database, please use the "humann2_config" command to update the default location of this database. Alternatively you can always provide the location of the chocophlan database you would like to use with the "--nucleotide-database " option to humann2.
 * For other database information, refer to [biobakery/humann](https://github.com/biobakery/humann/blob/2.9/readme.md)
 
-## Run humann2:
+## Quick Start: Run humann2
 `$ humann2 --input $sample --output $output_dir`
 or `$ humann2 -i $sample -o $output_dir`
 NOTE: `$SAMPLENAME` can be set by the user with the option `--output-basename <$NEWNAME>`.
@@ -31,7 +31,15 @@ NOTE: `$SAMPLENAME` can be set by the user with the option `--output-basename <$
 See compelte option list [here](https://github.com/biobakery/humann/blob/2.9/readme.md#complete-option-list).
 
 ### [Standard workflow](https://github.com/biobakery/humann/blob/2.9/readme.md#standard-workflow)
-1. Run Humann2 on filtered fastq files. 
+1. Run Humann2 on quality controlled fastq files. 
+
+`$ humann2 -i $input_file -o $output_dir`
+
+This will produce three .tsv files:
+`$OUTPUT_DIR/$SAMPLE_genefamilies.tsv
+$OUTPUT_DIR/$SAMPLE_pathabundance.tsv
+$OUTPUT_DIR/$SAMPLE_pathcoverage.tsv`
+
 2. Normalize the abundance output files.
 
     Select the scheme: 
