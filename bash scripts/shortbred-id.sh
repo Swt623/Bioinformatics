@@ -1,3 +1,4 @@
+#!/bin/bash
 
 #SBATCH -A b1042
 #SBATCH --job-name=shortbred-id
