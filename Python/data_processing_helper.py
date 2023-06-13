@@ -26,16 +26,17 @@ def clean_index_names(df, sep, read_min=0): # read in a dataframe and a separato
     df=df.groupby(index_name).sum()
     return df
 
-def metaphlan2_taxa_table(taxa_df, level):
+def metaphlan_taxa_table(taxa_df, level):
     # define the dictionary:
-    level_dict={'species': 's__',
+    level_dict={'SGB': 't__',
+                'species': 's__',
                 'genus': 'g__',
                 'family': 'f__',
                 'order': 'o__',
                 'class': 'c__',
                 'phylum': 'p__',
                 'kingdom': 'k__'}
-    
+    print(level_dict)
     # get the list of taxa from taxa_df
     taxa_list = list(taxa_df.index)
 
