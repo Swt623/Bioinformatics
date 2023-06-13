@@ -36,7 +36,7 @@ def metaphlan_taxa_table(taxa_df, level):
                 'class': 'c__',
                 'phylum': 'p__',
                 'kingdom': 'k__'}
-    
+    print(level_dict)
     # get the list of taxa from taxa_df
     taxa_list = list(taxa_df.index)
 
