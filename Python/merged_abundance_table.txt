@@ -1,0 +1,24 @@
+#mpa_vOct22_CHOCOPhlAnSGB_202212
+	SRS014476-Supragingival_plaque	SRS014494-Posterior_fornix
+k__Bacteria	100.0	100.0
+k__Bacteria|p__Actinobacteria	55.36506	0.0
+k__Bacteria|p__Firmicutes	44.63494	100.0
+k__Bacteria|p__Actinobacteria|c__Actinomycetia	55.36506	0.0
+k__Bacteria|p__Firmicutes|c__Bacilli	44.63494	100.0
+k__Bacteria|p__Firmicutes|c__Bacilli|o__Lactobacillales	44.63494	100.0
+k__Bacteria|p__Actinobacteria|c__Actinomycetia|o__Corynebacteriales|f__Corynebacteriaceae	55.36506	0.0
+k__Bacteria|p__Firmicutes|c__Bacilli|o__Lactobacillales|f__Enterococcaceae	44.63494	0.0
+k__Bacteria|p__Actinobacteria|c__Actinomycetia|o__Corynebacteriales|f__Corynebacteriaceae|g__Corynebacterium	55.36506	0.0
+k__Bacteria|p__Firmicutes|c__Bacilli|o__Lactobacillales|f__Enterococcaceae|g__GGB10485	44.63494	0.0
+k__Bacteria|p__Actinobacteria|c__Actinomycetia|o__Corynebacteriales|f__Corynebacteriaceae|g__Corynebacterium|s__Corynebacterium_matruchotii	55.36506	0.0
+k__Bacteria|p__Firmicutes|c__Bacilli|o__Lactobacillales|f__Enterococcaceae|g__GGB10485|s__GGB10485_SGB49305	44.63494	0.0
+k__Bacteria|p__Actinobacteria|c__Actinomycetia|o__Corynebacteriales|f__Corynebacteriaceae|g__Corynebacterium|s__Corynebacterium_matruchotii|t__SGB17007	55.36506	0.0
+k__Bacteria|p__Firmicutes|c__Bacilli|o__Lactobacillales|f__Enterococcaceae|g__GGB10485|s__GGB10485_SGB49305|t__SGB49305_group	44.63494	0.0
+k__Bacteria|p__Firmicutes|c__Bacilli|o__Lactobacillales|f__Lactobacillaceae	0.0	100.0
+k__Bacteria|p__Firmicutes|c__Bacilli|o__Lactobacillales|f__Lactobacillaceae|g__Lactobacillus	0.0	100.0
+k__Bacteria|p__Firmicutes|c__Bacilli|o__Lactobacillales|f__Lactobacillaceae|g__Lactobacillus|s__Lactobacillus_crispatus	0.0	77.36286
+k__Bacteria|p__Firmicutes|c__Bacilli|o__Lactobacillales|f__Lactobacillaceae|g__Lactobacillus|s__Lactobacillus_iners	0.0	21.608710000000002
+k__Bacteria|p__Firmicutes|c__Bacilli|o__Lactobacillales|f__Lactobacillaceae|g__Lactobacillus|s__Lactobacillus_jensenii	0.0	1.02844
+k__Bacteria|p__Firmicutes|c__Bacilli|o__Lactobacillales|f__Lactobacillaceae|g__Lactobacillus|s__Lactobacillus_crispatus|t__SGB7045	0.0	77.36286
+k__Bacteria|p__Firmicutes|c__Bacilli|o__Lactobacillales|f__Lactobacillaceae|g__Lactobacillus|s__Lactobacillus_iners|t__SGB7025	0.0	21.608710000000002
+k__Bacteria|p__Firmicutes|c__Bacilli|o__Lactobacillales|f__Lactobacillaceae|g__Lactobacillus|s__Lactobacillus_jensenii|t__SGB7035	0.0	1.02844
