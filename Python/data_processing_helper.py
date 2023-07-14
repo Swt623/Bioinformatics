@@ -22,8 +22,8 @@ def clean_index_names(df, sep, read_min=0): # read in a dataframe and a separato
                 df.rename(index = {name: name_list[-i]}, inplace=True)
                 break
     # collapse by index
-    index_name=df.index.name
-    df=df.groupby(index_name).sum()
+    df.index.name ='Taxa'
+    df=df.groupby(df.index.name).sum()
     return df
 
 def metaphlan_taxa_table(taxa_df, level):
